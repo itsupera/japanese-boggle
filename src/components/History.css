@@ -1,0 +1,45 @@
+.history {
+  flex-grow: 0;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  height: 80vh
+}
+
+.history-title {
+  flex-shrink: 0;
+}
+
+.history-list {
+  flex-grow: 1;
+  list-style-type: none;
+  border: 1px solid #ccc;
+  overflow: auto;
+}
+
+.history-list li {
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+}
+
+.spelling {
+  color: #3f3;
+  font-weight: bold;
+}
+
+.dict-entries {
+  margin-left: 10px;
+}
+
+.dict-entry {
+
+}
+
+.word {
+  
+}
+
+.meanings {
+  margin-left: 10px;
+}

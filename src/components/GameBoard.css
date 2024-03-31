@@ -1,0 +1,14 @@
+.game-board {
+  flex-grow: 1;
+}
+
+.word {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+}
+
+.game-board table {
+  border-collapse: collapse;
+  margin: 0 auto;
+}
