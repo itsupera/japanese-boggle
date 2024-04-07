@@ -1,0 +1,26 @@
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.close {
+  /** Make the font bigger for the button to be more visible */
+  font-size: 1.5rem;
+  /** Align the button to the right, which is more intuitive */
+  align-self: flex-end;
+}
+
+.how-to-select-gif {
+  flex-grow: 0;
+  align-self: center;
+  height: 200px;
+  width: auto;
+}
+
+.columns {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}

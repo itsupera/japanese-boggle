@@ -6,6 +6,7 @@ import GameOver from './GameOver'
 import History from './History'
 import Score from './Score'
 import Timer from './Timer'
+import HowToPlay from './HowToPlay'
 
 const App: React.FC = () => {
   const gameState = useGameState()
@@ -40,6 +41,7 @@ const App: React.FC = () => {
       </header>
       <main>
         <div className="top-pane">
+          <HowToPlay />
           <button className="new-game" onClick={handleNewGame}>
             New Game
           </button>
