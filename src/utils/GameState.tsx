@@ -35,38 +35,37 @@ const initState = (
 ): GameState => ({
   size,
   characters: generateKanaBoard(size),
-  history: [
-    {
-      spelling: 'あい',
-      score: 10,
-      dictEntries: [
-        {
-          word: 'あいうえお',
-          reading: 'あいうえお',
-          boggle_spelling: 'あいうえお',
-          meanings: ['The first five hiragana characters', 'Something else']
-        },
-        {
-          word: 'アイウエオ',
-          reading: 'アイウエオ',
-          boggle_spelling: 'あいうえお',
-          meanings: ['The first five katakana characters', 'Something else']
-        }
-      ]
-    },
-    {
-      spelling: 'いあ',
-      score: 5,
-      dictEntries: [
-        {
-          word: 'かきくけこ',
-          reading: 'かきくけこ',
-          boggle_spelling: 'かきくけこ',
-          meanings: ['The next five hiragana characters']
-        }
-      ]
-    }
-  ]
+  history: []
+  // {
+  //   spelling: 'あい',
+  //   score: 10,
+  //   dictEntries: [
+  //     {
+  //       word: 'あいうえお',
+  //       reading: 'あいうえお',
+  //       boggle_spelling: 'あいうえお',
+  //       meanings: ['The first five hiragana characters', 'Something else']
+  //     },
+  //     {
+  //       word: 'アイウエオ',
+  //       reading: 'アイウエオ',
+  //       boggle_spelling: 'あいうえお',
+  //       meanings: ['The first five katakana characters', 'Something else']
+  //     }
+  //   ]
+  // },
+  // {
+  //   spelling: 'いあ',
+  //   score: 5,
+  //   dictEntries: [
+  //     {
+  //       word: 'かきくけこ',
+  //       reading: 'かきくけこ',
+  //       boggle_spelling: 'かきくけこ',
+  //       meanings: ['The next five hiragana characters']
+  //     }
+  //   ]
+  // }
 })
 
 export const GameStateProvider: React.FC<{children: React.ReactNode}> = ({ children }) => {
