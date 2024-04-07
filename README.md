@@ -6,8 +6,6 @@ and click again to confirm the word.
 
 ## TODOs
 
-- make timer actually work
-- reset button
 - change kana frequencies
 - make one kana words invalid (too easy!)
 - remove abbreviations from the dictionary

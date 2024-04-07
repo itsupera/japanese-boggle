@@ -3,7 +3,8 @@
   max-width: 800px;
   display: flex;
   flex-direction: column;
-  height: 80vh
+  height: 80vh;
+  border: 1px solid #ccc;
 }
 
 .history-title {
@@ -13,7 +14,6 @@
 .history-list {
   flex-grow: 1;
   list-style-type: none;
-  border: 1px solid #ccc;
   overflow: auto;
 }
 

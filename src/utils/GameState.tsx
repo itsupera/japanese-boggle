@@ -23,6 +23,7 @@ export interface GameStateContextType {
   state: GameState
   submitWord: (selectedCoords: Coords[]) => boolean
   replaceCharacters: (selectedCoords: Coords[]) => void
+  resetGame: () => void
 }
 
 export const GameStateContext = createContext<GameStateContextType | null>(null)
@@ -92,8 +93,12 @@ export const GameStateProvider: React.FC<{children: React.ReactNode}> = ({ child
     setState(prevState => ({ ...prevState, characters: newCharacters }))
   }
 
+  const resetGame = () => {
+    setState(initState(state.size))
+  }
+
   return (
-    <GameStateContext.Provider value={{ state, submitWord, replaceCharacters }}>
+    <GameStateContext.Provider value={{ state, submitWord, replaceCharacters, resetGame }}>
       {children}
     </GameStateContext.Provider>
   )
