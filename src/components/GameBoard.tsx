@@ -14,10 +14,16 @@ const GameBoard: React.FC = () => {
   const timeout = useRef<NodeJS.Timeout | null>(null)
 
   const handleClick = (coords: Coords) => {
+    // If there are no characters selected,
+    // the character we clicked becomes the first character
+    // in the word we are forming.
     if (selectedCoords.length === 0) {
       setSelectedCoords([coords])
       return
     }
+
+    // When clicking on a character after having selected
+    // a series of characters, we submit the word if it is valid.
     if (selectedCoords.length > 0) {
       if(submitWord(selectedCoords)) {
         setWordStatus('valid')

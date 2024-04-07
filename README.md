@@ -7,7 +7,6 @@ and click again to confirm the word.
 ## TODOs
 
 - change kana frequencies
-- make one kana words invalid (too easy!)
 - remove abbreviations from the dictionary
 - history in reverse order
 - put board in center, history on the side

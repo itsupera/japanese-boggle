@@ -40,6 +40,10 @@ const useWordValidator = () => {
   const spellingToDictEntries = createMapping()
 
   const validate = (word: string): DictEntry[] => {
+    // If the word is too short, it is never valid
+    if (word.length < 2) {
+      return []
+    }
     const match = spellingToDictEntries.get(word)
     return match ? match : []
   }
