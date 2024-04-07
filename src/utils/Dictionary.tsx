@@ -1,5 +1,4 @@
 import { useMemo } from 'react'
-import data from '../data/dictionary.json'
 
 export interface DictEntry {
   word: string
@@ -13,6 +12,8 @@ export interface DictEntry {
  * that match it, for quick lookup.
  */
 const createMapping = (): Map<string, DictEntry[]> => {
+  const data = require('../data/dictionary.json')
+
   const spellingToDictEntries = new Map<string, DictEntry[]>();
   // const data: DictEntry[] = [
   //   {

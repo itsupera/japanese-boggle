@@ -53,7 +53,8 @@ const computeCumulativeProbabilities = (kanaToProbability: Map<string, number>):
 const useKanaGenerator = () => {
   const { spellingToDictEntries } = useDictionary()
   const kanaToProbability = useMemo(() => computeKanaProbabilities(spellingToDictEntries), [spellingToDictEntries])
-  const cumulativeProbabilities = computeCumulativeProbabilities(kanaToProbability)
+  const cumulativeProbabilities = useMemo(() => computeCumulativeProbabilities(kanaToProbability), [kanaToProbability])
+
   const generateKana = (): string => {
     const random = Math.random()
     for (let i = 0; i < cumulativeProbabilities.length; i++) {

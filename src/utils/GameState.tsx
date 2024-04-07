@@ -4,6 +4,7 @@ import { Coords } from "./Coords"
 import React from 'react'
 import { DictEntry } from "./Dictionary"
 import useKanaGenerator from "./KanaGenerator"
+import { kanaToScore } from "../components/Character"
 
 export interface HistoryEntry {
   spelling: string
@@ -73,6 +74,12 @@ export const GameStateProvider: React.FC<{children: React.ReactNode}> = ({ child
   const [state, setState] = useState<GameState>(initState(5, generateKanaBoard))
   const validator = useWordValidator()
 
+  const computeWordScore = (word: string): number => {
+    // For each kana character in the word, add the score to the total
+    // using the kanaToScore object
+    return word.split('').reduce((acc, kana) => acc + kanaToScore[kana], 0)
+  }
+
   const submitWord = (selectedCoords: Coords[]): boolean => {
     const word = selectedCoords.map(({ row, col }) => state.characters[row][col]).join('')
     console.log('Selected word:', word)
@@ -80,7 +87,7 @@ export const GameStateProvider: React.FC<{children: React.ReactNode}> = ({ child
     const isValid = dictEntries.length > 0
     console.log('Is valid:', isValid)
     if (isValid) {
-      const score = word.length
+      const score = computeWordScore(word)
       setState(prevState => ({
         ...prevState,
         history: [{ spelling: word, score, dictEntries }, ...prevState.history]
@@ -102,7 +109,12 @@ export const GameStateProvider: React.FC<{children: React.ReactNode}> = ({ child
   }
 
   return (
-    <GameStateContext.Provider value={{ state, submitWord, replaceCharacters, resetGame }}>
+    <GameStateContext.Provider value={{
+      state,
+      submitWord,
+      replaceCharacters,
+      resetGame
+    }}>
       {children}
     </GameStateContext.Provider>
   )
