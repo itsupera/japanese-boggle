@@ -7,4 +7,7 @@ and click again to confirm the word.
 ## TODOs
 
 - remove abbreviations from the dictionary
-- put board in center, history on the side
+- dockerize
+- sort definitions from most to least common
+- show player's high score (with a cookie)
+- leaderboard
