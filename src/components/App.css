@@ -31,6 +31,10 @@
   gap: 50px;
 }
 
+.new-game {
+  font-size: 1.5em;
+}
+
 .center-pane {
   display: flex;
   flex-direction: row;
