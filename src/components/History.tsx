@@ -13,7 +13,7 @@ const History: React.FC<HistoryProps> = ({ history }): JSX.Element => {
   return (
     <div className="history">
       <h2 className="history-title">History</h2>
-      <ol reversed className="history-list">
+      <ol className="history-list">
         {history.map((entry, i) => (
           <li key={i}>
             <span className='spelling'>{entry.spelling}</span>

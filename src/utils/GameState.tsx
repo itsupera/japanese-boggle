@@ -84,7 +84,7 @@ export const GameStateProvider: React.FC<{children: React.ReactNode}> = ({ child
       const score = word.length
       setState(prevState => ({
         ...prevState,
-        history: [...prevState.history, { spelling: word, score, dictEntries }]
+        history: [{ spelling: word, score, dictEntries }, ...prevState.history]
       }))
     }
     return isValid

@@ -7,5 +7,4 @@ and click again to confirm the word.
 ## TODOs
 
 - remove abbreviations from the dictionary
-- history in reverse order
 - put board in center, history on the side
