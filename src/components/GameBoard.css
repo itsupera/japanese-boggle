@@ -1,12 +1,16 @@
 .game-board {
   flex-grow: 1;
   align-items: center;
+  gap: 10px;
 }
 
-.word {
+.current-word {
+  /** Fix the height to prevent a sudden change */
+  display: inline-block;
+  height: 35px;
   font-size: 1.5em;
   font-weight: bold;
-  margin-bottom: 0.5em;
+  border: 1px solid #eee;
 }
 
 .game-board table {

@@ -1,8 +1,9 @@
 import { createContext, useContext, useState } from "react"
-import { generateCharacter, generateKanaBoard } from "./KanaGenerator"
-import useWordValidator, { DictEntry } from "./WordValidator"
+import useWordValidator from "./WordValidator"
 import { Coords } from "./Coords"
 import React from 'react'
+import { DictEntry } from "./Dictionary"
+import useKanaGenerator from "./KanaGenerator"
 
 export interface HistoryEntry {
   spelling: string
@@ -28,7 +29,10 @@ export interface GameStateContextType {
 
 export const GameStateContext = createContext<GameStateContextType | null>(null)
 
-const initState = (size: number): GameState => ({
+const initState = (
+  size: number,
+  generateKanaBoard: (size: number) => string[][]
+): GameState => ({
   size,
   characters: generateKanaBoard(size),
   history: [
@@ -66,7 +70,8 @@ const initState = (size: number): GameState => ({
 })
 
 export const GameStateProvider: React.FC<{children: React.ReactNode}> = ({ children }) => {
-  const [state, setState] = useState<GameState>(initState(5))
+  const { generateKana, generateKanaBoard } = useKanaGenerator()
+  const [state, setState] = useState<GameState>(initState(5, generateKanaBoard))
   const validator = useWordValidator()
 
   const submitWord = (selectedCoords: Coords[]): boolean => {
@@ -88,13 +93,13 @@ export const GameStateProvider: React.FC<{children: React.ReactNode}> = ({ child
   const replaceCharacters = (selectedCoords: Coords[]) => {
     const newCharacters = state.characters.map(row => [...row])
     selectedCoords.forEach(({ row, col }) => {
-      newCharacters[row][col] = generateCharacter()
+      newCharacters[row][col] = generateKana()
     })
     setState(prevState => ({ ...prevState, characters: newCharacters }))
   }
 
   const resetGame = () => {
-    setState(initState(state.size))
+    setState(initState(state.size, generateKanaBoard))
   }
 
   return (

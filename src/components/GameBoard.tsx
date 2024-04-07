@@ -1,7 +1,8 @@
 import React, { useRef } from 'react'
 import { Coords, isAdjacent } from '../utils/Coords'
-import Character from './Character'
 import { GameStateContextType, useGameState } from '../utils/GameState'
+import Character from './Character'
+import './GameBoard.css'
 
 /**
  * The game board consists of a grid of kana characters.
@@ -68,7 +69,9 @@ const GameBoard: React.FC = () => {
 
   return (
     <div className="game-board">
-      <span className="word">{word.length > 0 ? word : '-'}</span>
+      <span className="current-word">
+        {word.length > 0 ? word : '・'}
+      </span>
       <table>
         <tbody>
           {Array.from({ length: state.size }).map((_, row) => (
