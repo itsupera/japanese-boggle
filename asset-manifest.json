@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/boggle/static/css/main.933c2970.css",
+    "main.js": "/boggle/static/js/main.92debbe4.js",
+    "static/media/how-to-select.gif": "/boggle/static/media/how-to-select.3ee56b48f712c1f942f0.gif",
+    "index.html": "/boggle/index.html",
+    "main.933c2970.css.map": "/boggle/static/css/main.933c2970.css.map",
+    "main.92debbe4.js.map": "/boggle/static/js/main.92debbe4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.933c2970.css",
+    "static/js/main.92debbe4.js"
+  ]
+}
